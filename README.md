@@ -12,8 +12,15 @@ flen is a bash script which recursively searches directories for specified
 file types and seeks out long functions by matching up pairs of curly-braces,
 while counting the lines between matched pairs.
 
-usage: flen <length> <path> <file type>
-example: ./flen.sh 400 . *.c
+flen - the function length counter
+usage: flen -l <length> -d <depth> -p <path> -t <type>
+Where:
+	-l,--length	lines of code between opening and closing braces
+	-d,--depth	Number of successive opening braces
+	-p,--path	Path to files in which to search
+	-t,--type	type of files in which to inspect
+
+example: ./flen.sh -l 400 -d 10 -p . -t *.c
 
 Sometimes you may wish to sort the output of flen:
-./flen.sh 400 . *.c | sort -k2nr
+./flen.sh -l 400 -d 10 -p . -t *.c | sort -k3nr
