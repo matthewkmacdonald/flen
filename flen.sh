@@ -10,7 +10,7 @@
 # Written By: Matthew MacDonald
 # Date: 02-Feb-2017
 
-
+COUNT=0
 # CountBraces
 # Matches up pairs of { }
 # length when this limit is exceeded.  If no limit is provided
@@ -39,6 +39,7 @@ do
 		if [ $j -gt $theDepthLimit ]
 		then
 			echo "(depth) $theFileName:$aLineNumber $j"
+			((COUNT++))
 		fi
 	elif [ "$aBraceCharacter" = "}" ]
 	then
@@ -46,6 +47,7 @@ do
 		if [ $j -lt 0 ]
 		then
 			echo "(error) $theFileName:$aLineNumber"
+			((COUNT++))
 			return
 		fi
 
@@ -55,6 +57,7 @@ do
 		if [ $aFunctionLength -gt $theLengthLimit ]
 		then
 			echo "(length) $theFileName:$x $aFunctionLength"
+			((COUNT++))
 		fi
 	fi
 done
@@ -132,4 +135,6 @@ aListOfFiles=`find $SEARCHPATH -type f -name "$FILETYPE"`
 for file in $aListOfFiles; do
 	CountBraces $file $LENGTH $DEPTH
 done
+
+exit $COUNT
 ################################### EOF ######################################
