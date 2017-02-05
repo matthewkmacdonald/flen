@@ -31,7 +31,6 @@ do
 	IFS=':' read -ra anArrayOfBraces <<< $line
 	aLineNumber=${anArrayOfBraces[0]}
 	aBraceCharacter=${anArrayOfBraces[1]}
-	#echo " testing $aLineNumber $aBraceCharacter"
 
 	if [ "$aBraceCharacter" = "{" ]
 	then
@@ -49,8 +48,10 @@ do
 			echo "(error) $theFileName:$aLineNumber"
 			return
 		fi
+
 		x=${arr[$j]}
 		aFunctionLength=$((aLineNumber-x))
+
 		if [ $aFunctionLength -gt $theLengthLimit ]
 		then
 			echo "(length) $theFileName:$x $aFunctionLength"
