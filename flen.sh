@@ -74,10 +74,10 @@ function PrintHelp() {
 	echo "	-p,--path	Path to files in which to search"
 	echo "	-t,--type	type of files in which to inspect"
 	echo ""
-	echo "example: ./flen.sh -l 400 -d 10 -p . -t *.c"
+	echo "example: ./flen.sh -l 400 -d 10 -p . -t \"*.c\""
 	echo ""
 	echo "Sometimes you may wish to sort the output of flen:"
-	echo "./flen.sh -l 400 -d 10 -p . -t *.c | sort -k3nr" 
+	echo "./flen.sh -l 400 -d 10 -p . -t \"*.c\" | sort -k3nr" 
 }
 
 ################################### MAIN #####################################
