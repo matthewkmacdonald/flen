@@ -21,8 +21,8 @@ Where:
 	-p,--path	Path to files in which to search
 	-t,--type	type of files in which to inspect
 
-example: ./flen.sh -l 400 -d 10 -p . -t *.c
+example: ./flen.sh -l 400 -d 10 -p . -t "*.c"
 
 Sometimes you may wish to sort the output of flen:
-./flen.sh -l 400 -d 10 -p . -t *.c | sort -k3nr
+./flen.sh -l 400 -d 10 -p . -t "*.c" | sort -k3nr
 ~~~~
